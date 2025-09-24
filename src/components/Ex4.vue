@@ -1,5 +1,4 @@
 <script>
-import { transformWithEsbuild } from 'vite';
 
     export default { 
         data() {
