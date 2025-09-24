@@ -1,12 +1,19 @@
 <script>
+import { transformWithEsbuild } from 'vite';
+
     export default { 
         data() {
             return {
                 // Add code here
+                id: "demo1",
+                blueBoth: true
             }
         },
         methods: { 
    			// Add code here
+            changeColor() {
+                this.blueBoth = !this.blueBoth
+            }
 		}
     }
 </script>
@@ -15,11 +22,11 @@
     
     <!-- Modify code here -->
     <div class="container">
-        <div v-bind:id="id" class="m-2">
+        <div v-bind:id="id" class="m-2" v-bind:class="{'blueBox': blueBoth, 'redBox': !blueBoth}">
             div ID : {{id}} 
         </div>
         
-        <button type="button">Change Color</button>
+        <button type="button" v-bind:class="{'btn btn-primary': blueBoth, 'btn btn-danger': !blueBoth}" v-on:click="changeColor()">Change Color</button>
     </div>
 
 </template>
